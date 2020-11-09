@@ -1,0 +1,17 @@
+source 'https://cdn.cocoapods.org/'
+
+platform :ios, '11.0'
+use_frameworks!
+
+target 'IDMExtensions_Example' do
+  pod 'IDMExtensions', :path => '../'
+#  pod 'IDMExtensions/Loading', :path => '../'
+#  pod 'IDMExtensions/MBProgressHUD', :path => '../'
+  pod 'IDMExtensions/JGProgressHUD', :path => '../'
+  pod 'IDMExtensions/ObjectMapper', :path => '../'
+  pod 'IDMExtensions/Codable', :path => '../'
+
+  target 'IDMExtensions_Tests' do
+    inherit! :search_paths
+  end
+end
