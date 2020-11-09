@@ -23,8 +23,8 @@ class ViewController: UIViewController {
             }
             """
         let model = try? RootModel(fromData: json)
-        print(model?.success)
-        print(model?.code)
+        print(model?.success as Any)
+        print(model?.code as Any)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,12 +42,16 @@ class ViewController: UIViewController {
     }
 }
 
-struct RootModel: Codable, ModelProtocol {
+struct RootModel {
     var success: Bool?
     var code: Int?
+}
 
+extension RootModel: Codable {
     enum CodingKeys: String, CodingKey {
         case success
         case code
     }
 }
+
+extension RootModel: ModelProtocol {}
